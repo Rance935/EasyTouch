@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    card_view:cardBackgroundColor="#ffffff"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardPreventCornerOverlap="true"
+    card_view:cardUseCompatPadding="true"
+    card_view:contentPadding="10dp">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/show_setting_table_item_home"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableTop="@mipmap/icon_home"
+                android:gravity="center"
+                android:text="主页"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/show_setting_table_item_lock"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableTop="@mipmap/icon_lock"
+                android:gravity="center"
+                android:text="锁屏"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/show_setting_table_item_red"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableTop="@mipmap/icon_red_open"
+                android:gravity="center"
+                android:text="自动抢红包"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/show_setting_table_item_speed"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableTop="@mipmap/icon_speed"
+                android:gravity="center"
+                android:text="清理"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/show_setting_table_item_torch"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableTop="@mipmap/icon_torch_close"
+                android:gravity="center"
+                android:text="手电"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/show_setting_table_item_setting"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableTop="@mipmap/icon_setting"
+                android:gravity="center"
+                android:text="设置"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/show_setting_table_item_application"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableTop="@mipmap/icon_application"
+                android:gravity="center"
+                android:text="应用管理"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/show_setting_table_item_collection"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:drawableTop="@mipmap/icon_collection"
+                android:gravity="center"
+                android:text="收藏"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

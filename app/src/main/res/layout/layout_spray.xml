@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/transparent">
+
+    <ImageView
+        android:id="@+id/spray_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@mipmap/smoke_m" />
+
+    <ImageView
+        android:id="@+id/spray_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spray_bottom"
+        android:layout_alignParentLeft="true"
+        android:src="@mipmap/smoke_t" />
+
+</RelativeLayout>

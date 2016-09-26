@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar_appbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:drawableTop="@mipmap/icon_update"
+            android:gravity="center"
+            android:text="软件更新"
+            android:clickable="true"
+            android:onClick="UpdateClick"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:drawableTop="@mipmap/icon_uninstall"
+            android:gravity="center"
+            android:text="软件卸载"
+            android:clickable="true"
+            android:onClick="UninstallClick"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:drawableTop="@mipmap/icon_box"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="InstallationPackageClick"
+            android:text="安装包管理"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="软件推荐"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+</LinearLayout>
