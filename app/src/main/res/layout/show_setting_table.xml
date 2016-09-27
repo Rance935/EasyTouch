@@ -103,7 +103,7 @@
                 android:layout_height="64dp"
                 android:drawableTop="@mipmap/icon_collection"
                 android:gravity="center"
-                android:text="收藏"
+                android:text="常用"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
         </LinearLayout>

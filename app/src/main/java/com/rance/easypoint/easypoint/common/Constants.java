@@ -19,6 +19,7 @@ public class Constants {
     public static final int UPDATE = 0;
     public static final int UNINSTALL = 1;
     public static final int INSTALLATION_PACKAGE = 2;
+    public static final int ADD_APPLICATION = 3;
 
     public static final String WINDOWSWITCH = "WINDOWSWITCH";
 }

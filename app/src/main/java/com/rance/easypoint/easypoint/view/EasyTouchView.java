@@ -1,7 +1,6 @@
 package com.rance.easypoint.easypoint.view;
 
 import android.app.ActivityManager;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -37,7 +36,6 @@ public class EasyTouchView extends View {
     private WindowManager mWManager;
     private WindowManager.LayoutParams mViewEventMParams;
     private WindowManager.LayoutParams mRocketMParams;
-    private WindowManager.LayoutParams mSprayMParams;
     private View mTouchView;
 
     private ImageView mIconImageView = null;
@@ -136,7 +134,6 @@ public class EasyTouchView extends View {
                     msg.arg1 = y;
                     mHandler.sendMessage(msg);
                 }
-                mWManager.removeView(mRocketImageView);
             }
         }.start();
         clearMemory();
@@ -147,6 +144,9 @@ public class EasyTouchView extends View {
             int y = msg.arg1;
             mRocketMParams.y = y;
             mWManager.updateViewLayout(mRocketImageView, mRocketMParams);
+            if(y >= 1250){
+                mWManager.removeView(mRocketImageView);
+            }
         }
     };
 
@@ -210,7 +210,7 @@ public class EasyTouchView extends View {
                     Application();
                     break;
                 case R.id.show_setting_table_item_collection:
-
+                    hideSettingTable();
                     break;
                 case R.id.show_setting_table_item_lock:
                     LockScreen();
@@ -219,7 +219,7 @@ public class EasyTouchView extends View {
                     openHongBao();
                     break;
                 case R.id.show_setting_table_item_setting:
-                    openStatusbar();
+                    openApplication();
                     break;
                 case R.id.show_setting_table_item_speed:
                     sendRocket();
@@ -296,13 +296,19 @@ public class EasyTouchView extends View {
 
     }
 
-    private void openStatusbar() {
+    /**
+     * 打开应用
+     */
+    private void openApplication() {
         Intent intent = new Intent(mContext, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent);
         hideSettingTable();
     }
 
+    /**
+     * 应用管理
+     */
     private void Application() {
         Intent intent = new Intent(mContext, ApplicationActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

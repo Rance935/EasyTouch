@@ -32,9 +32,7 @@
                 android:id="@+id/item_application_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
                 android:gravity="center"
-                android:onClick="UpdateClick"
                 android:text="大杂烩"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
