@@ -2,37 +2,32 @@ package com.rance.easypoint.easypoint.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.kyleduo.switchbutton.SwitchButton;
 import com.rance.easypoint.easypoint.R;
 import com.rance.easypoint.easypoint.common.Constants;
 import com.rance.easypoint.easypoint.common.SharedPreferencesUtils;
-import com.rance.easypoint.easypoint.common.MUIUtils;
 import com.rance.easypoint.easypoint.service.AuxiliaryService;
-import com.rance.easypoint.easypoint.view.MyScrollView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.main_header)
-    LinearLayout mainHeader;
-    @BindView(R.id.main_title)
-    TextView mainTitle;
     @BindView(R.id.main_open)
     SwitchButton mainOpen;
-    @BindView(R.id.main_scrollview)
-    MyScrollView mainScrollview;
     @BindView(R.id.containerLayout)
-    FrameLayout containerLayout;
+    LinearLayout containerLayout;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     private Intent intent;
 
     @Override
@@ -40,29 +35,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initToolBarAsHome("EasyTouch");
         initEvent();
     }
 
     private void initEvent() {
-        mainScrollview.setOnScrollListener(new MyScrollView.OnScrollListener() {
-            @Override
-            public void onScroll(int scrollY) {
-                if (scrollY >= 200) {
-                    mainTitle.setVisibility(View.VISIBLE);
-                } else {
-                    mainTitle.setVisibility(View.GONE);
-                }
-            }
-        });
         mainOpen.setChecked((boolean) SharedPreferencesUtils.getParam(MainActivity.this, Constants.WINDOWSWITCH, false));
         intent = new Intent(MainActivity.this, AuxiliaryService.class);
         mainOpen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    if (MUIUtils.isMIUI() && !MUIUtils.isMiuiFloatWindowOpAllowed(MainActivity.this)) {
-                        MUIUtils.openMiuiPermissionActivity(MainActivity.this);
-                    }
                     startService(intent);
                     SharedPreferencesUtils.setParam(MainActivity.this, Constants.WINDOWSWITCH, true);
                 } else {
@@ -71,5 +54,36 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void AboutClick(View view) {
+        startActivity(new Intent(MainActivity.this, AboutActivity.class));
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        Log.d("main:","onSaveInstanceState");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("main:","onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 }

@@ -13,4 +13,10 @@
         <item name="android:windowExitAnimation">@anim/my_alpha_action</item>
     </style>
 
+    <!-- expandedTitleTextAppearance Title -->
+    <style name="expandedTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
 </resources>

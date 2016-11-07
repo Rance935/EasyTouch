@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Administrator on 2016/9/21.
  */
-public class ApplicationListActivity extends AppCompatActivity {
+public class ApplicationListActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.recycler_view)
@@ -64,9 +64,11 @@ public class ApplicationListActivity extends AppCompatActivity {
                         applicationBottom.setVisibility(View.GONE);
                         Toast.makeText(ApplicationListActivity.this, "没有扫描到任何应用", Toast.LENGTH_SHORT).show();
                     }
+                    dismissProgressDialog();
                     break;
                 case 1:
                     mApplicationAdapter.setDate(mPersonalApkModels);
+                    dismissProgressDialog();
                     break;
             }
             super.handleMessage(msg);
@@ -82,21 +84,6 @@ public class ApplicationListActivity extends AppCompatActivity {
     }
 
     /**
-     * 初始化标题栏
-     */
-    private void initToolBar(String title) {
-        toolbar.setTitle(title);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.mipmap.icon_back);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
-
-    /**
      * 初始化数据
      */
     private void initDate() {
@@ -107,7 +94,7 @@ public class ApplicationListActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mApplicationAdapter);
         mApkModels = new ArrayList<>();
         mTempApkModels = new ArrayList<>();
-
+        showProgressDialog("软件获取中...");
         switch (index) {
             case Constants.UPDATE:
                 initToolBar("软件更新");

@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Administrator on 2016/9/21.
  */
-public class ApplicationActivity extends AppCompatActivity {
+public class ApplicationActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
@@ -24,22 +24,7 @@ public class ApplicationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application);
         ButterKnife.bind(this);
-        initToolBar();
-    }
-
-    /**
-     * 初始化标题栏
-     */
-    private void initToolBar() {
-        toolbar.setTitle("应用管理");
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.mipmap.icon_back);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        initToolBar("应用管理");
     }
 
     /**

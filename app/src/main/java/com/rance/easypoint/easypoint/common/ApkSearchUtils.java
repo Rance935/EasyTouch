@@ -55,31 +55,33 @@ public class ApkSearchUtils {
                 apk_path = file.getAbsolutePath();// apk文件的绝对路劲
                 PackageManager pm = mContext.getPackageManager();
                 PackageInfo packageInfo = pm.getPackageArchiveInfo(apk_path, PackageManager.GET_ACTIVITIES);
-                ApplicationInfo appInfo = packageInfo.applicationInfo;
-                /**获取apk的图标 */
-                appInfo.sourceDir = apk_path;
-                appInfo.publicSourceDir = apk_path;
-                String appName = packageInfo.applicationInfo.loadLabel(mContext.getPackageManager()).toString();
-                mApkModel.setAppName(appName);
-                Drawable apk_icon = appInfo.loadIcon(pm);
-                mApkModel.setApkIcon(apk_icon);
-                /** 得到包名 */
-                String packageName = packageInfo.packageName;
-                mApkModel.setPackageName(packageName);
-                /** apk的绝对路劲 */
-                mApkModel.setFilePath(file.getAbsolutePath());
-                /** apk的版本名称 String */
-                String versionName = packageInfo.versionName;
-                mApkModel.setVersionName(versionName);
-                /** apk的版本号码 int */
-                int versionCode = packageInfo.versionCode;
-                mApkModel.setVersionCode(versionCode);
-                /**安装处理类型*/
-                int type = doInstallType(pm, packageName, versionCode);
-                mApkModel.setInstalled(type);
-                mApkModel.setType(Constants.PERSONAL_APPLICATION);
-                mApkModels.add(mApkModel);
-                mOnFindAllAPKClick.complete(mApkModels);
+                if (packageInfo != null) {
+                    ApplicationInfo appInfo = packageInfo.applicationInfo;
+                    /**获取apk的图标 */
+                    appInfo.sourceDir = apk_path;
+                    appInfo.publicSourceDir = apk_path;
+                    String appName = packageInfo.applicationInfo.loadLabel(mContext.getPackageManager()).toString();
+                    mApkModel.setAppName(appName);
+                    Drawable apk_icon = appInfo.loadIcon(pm);
+                    mApkModel.setApkIcon(apk_icon);
+                    /** 得到包名 */
+                    String packageName = packageInfo.packageName;
+                    mApkModel.setPackageName(packageName);
+                    /** apk的绝对路劲 */
+                    mApkModel.setFilePath(file.getAbsolutePath());
+                    /** apk的版本名称 String */
+                    String versionName = packageInfo.versionName;
+                    mApkModel.setVersionName(versionName);
+                    /** apk的版本号码 int */
+                    int versionCode = packageInfo.versionCode;
+                    mApkModel.setVersionCode(versionCode);
+                    /**安装处理类型*/
+                    int type = doInstallType(pm, packageName, versionCode);
+                    mApkModel.setInstalled(type);
+                    mApkModel.setType(Constants.PERSONAL_APPLICATION);
+                    mApkModels.add(mApkModel);
+                    mOnFindAllAPKClick.complete(mApkModels);
+                }
             }
         } else {
             File[] files = file.listFiles();

@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
@@ -90,7 +91,11 @@ public class EasyTouchView extends View {
         WindowManager wm = mWManager;
         WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams();
         mViewEventMParams = wmParams;
-        wmParams.type = LayoutParams.TYPE_PHONE; // 这里的2002表示系统级窗口，你也可以试试2003。
+        if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT){
+            wmParams.type = LayoutParams.TYPE_PHONE;
+        } else {
+            wmParams.type = LayoutParams.TYPE_TOAST;
+        }
         wmParams.flags = 40; // 设置桌面可控
         wmParams.width = 100;
         wmParams.height = 100;

@@ -1,6 +1,5 @@
 package com.rance.easypoint.easypoint.activity;
 
-import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -29,7 +28,7 @@ public class LockScreenActivity extends AppCompatActivity {
         componentName = new ComponentName(this, LockReceiver.class);
         if (policyManager.isAdminActive(componentName)) {//判断是否有权限(激活了设备管理器)
             policyManager.lockNow();// 直接锁屏
-            android.os.Process.killProcess(android.os.Process.myPid());
+            finish();
         } else {
             activeManager();//激活设备管理器获取权限
         }
@@ -48,9 +47,8 @@ public class LockScreenActivity extends AppCompatActivity {
     protected void onResume() {//重写此方法用来在第一次激活设备管理器之后锁定屏幕
         if (policyManager!=null && policyManager.isAdminActive(componentName)) {
             policyManager.lockNow();
-            android.os.Process.killProcess(android.os.Process.myPid());
+            finish();
         }
         super.onResume();
     }
-
 }
