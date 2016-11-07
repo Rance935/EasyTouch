@@ -81,8 +81,8 @@ public class EasyTouchView extends View {
     private void initEasyTouchViewEvent() {
         // 设置载入view WindowManager参数
         mWManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
-        midX = mWManager.getDefaultDisplay().getWidth() / 2 - 25;
-        midY = mWManager.getDefaultDisplay().getHeight() / 2 - 44;
+        midX = mWManager.getDefaultDisplay().getWidth() / 2;
+        midY = mWManager.getDefaultDisplay().getHeight() / 2;
         mTouchView = LayoutInflater.from(mContext).inflate(R.layout.easy_touch_view, null);
         mIconImageView = (ImageView) mTouchView.findViewById(R.id.easy_touch_view_imageview);
         mTouchView.setBackgroundColor(Color.TRANSPARENT);
@@ -91,12 +91,18 @@ public class EasyTouchView extends View {
         WindowManager wm = mWManager;
         WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams();
         mViewEventMParams = wmParams;
+        //适配小米、魅族等手机需要悬浮框权限的问题
         if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT){
             wmParams.type = LayoutParams.TYPE_PHONE;
         } else {
             wmParams.type = LayoutParams.TYPE_TOAST;
         }
-        wmParams.flags = 40; // 设置桌面可控
+        /**
+         *这里的flags也很关键
+         *代码实际是wmParams.flags |= FLAG_NOT_FOCUSABLE;
+         *40的由来是wmParams的默认属性（32）+ FLAG_NOT_FOCUSABLE（8）
+         */
+        wmParams.flags=40;
         wmParams.width = 100;
         wmParams.height = 100;
         wmParams.format = -3; // 透明

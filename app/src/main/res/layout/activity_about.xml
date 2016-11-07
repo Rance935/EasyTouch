@@ -91,56 +91,6 @@
                         android:textSize="12sp" />
 
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="@string/app_dev" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="@string/desc_dev"
-                        android:paddingLeft="10dp"
-                        android:textColor="@color/black"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="@string/desc_dev_4"
-                        android:paddingLeft="10dp"
-                        android:textColor="@color/black"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="@string/desc_dev_1"
-                        android:paddingLeft="10dp"
-                        android:textSize="12sp"
-                        android:textColor="@color/black" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="@string/desc_dev_2"
-                        android:paddingLeft="10dp"
-                        android:textSize="12sp"
-                        android:textColor="@color/black" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="@string/desc_dev_3"
-                        android:paddingLeft="10dp"
-                        android:textSize="12sp"
-                        android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="match_parent"

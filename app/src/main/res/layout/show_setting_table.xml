@@ -83,7 +83,7 @@
                 android:layout_height="64dp"
                 android:drawableTop="@mipmap/icon_setting"
                 android:gravity="center"
-                android:text="设置"
+                android:text="软件设置"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
